@@ -3,11 +3,20 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
 }
+
+button {
+    background-color: beige;
+    font-size: 18px;
+    border-radius: 5px;
+
+}
+
 .gridBox {
     border: 1px, solid, black;
-    background: red;
+    background: beige;
 
 }
 .header{
@@ -20,6 +29,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 20px;
     width: 800px;
     height: 800px;
     border: 5px, solid, black;
