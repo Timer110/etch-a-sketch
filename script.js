@@ -1,6 +1,6 @@
 //general Variables
-let gridSize = 40;
-let widthContent = 700;
+let gridSize = 40; //initial default GridSize
+const widthContent = 700; //width of Container, cannot be changed!
 
 //HTMl-Variables
 const centerContent = document.querySelector(".centerContent");
@@ -15,14 +15,18 @@ function makeGrid(gridSize, widthContent) {
 
     for (let i = 0; i < numberBoxes; i++) {
         const gridBox = document.createElement("div");
+        let opac = 0;
         gridBox.setAttribute("id", "gridBox" + i);
         gridBox.setAttribute("class", "gridBox");
         gridBox.style.height = widthBox;
         gridBox.style.width = widthBox;
+        gridBox.style.opacity = opac;
         centerContent.appendChild(gridBox);
 
-        gridBox.addEventListener("mouseenter", () =>{
+        gridBox.addEventListener("mouseenter", () => {
+        opac += 0.1;
         gridBox.style.backgroundColor = "black";
+        gridBox.style.opacity = opac;
         });
     }
 }
@@ -38,11 +42,16 @@ function removeGrid() {
 }
 
 resetButton.addEventListener("click", () => {
-    let userInput = prompt("Please enter new grid-Size:", "40");
+    let userInput = prompt("Please enter new grid-Size (Max. 100):", "40");
+
+    if (userInput <= 100) {
     gridSize = userInput;
     removeGrid();
     makeGrid(gridSize, widthContent);
-
+    };
+    if (userInput > 100) {
+        alert("Gridsize can be max. 100x100. Please try again!")
+    };
 
 });
 
